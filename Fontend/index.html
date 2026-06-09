@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MigrantCare</title>
+</head>
+<body>
+
+    <h1>Migrant Worker Registration</h1>
+
+<form>
+       Name : <input id="name" type="text" placeholder="Enter Name"><br><br>
+
+      Age:  <input id="age" type="number" placeholder="Enter Age"><br><br>
+
+       State: <input id="state" type="text" placeholder="Enter State"><br><br>
+
+       Blood Group: <input type="text" id="bloodGroup" placeholder="Blood Group"><br><br>
+
+        Disease:<input type="text" id="disease" placeholder="Disease"><br><br>
+
+        Phone No:<input type="text" id="phone" placeholder="Phone Number"><br><br>
+    
+        <button type="submit">Register Worker</button>
+    </form>
+
+    <p id="message"></p>
+    <h3 id="workerCount">Total Workers: 0</h3>
+
+    <h2>Workers List</h2>
+
+    <input type="text" id="search" placeholder="Search Worker..."><br><br>
+    
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>State</th>
+            <th>Blood Group</th>
+            <th>Disease</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody id="workersTable"></tbody>
+</table>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
