@@ -7,6 +7,18 @@ router.get("/", async (req, res) => {
     const workers = await Worker.find();
     res.json(workers);
 });
+router.get("/:id", async (req, res) => {
+
+    
+
+    const worker =
+    await Worker.findById(req.params.id);
+
+   
+
+    res.json(worker);
+
+});
 
 router.post("/register", async (req, res) => {
     console.log(req.body);
