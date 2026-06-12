@@ -7,7 +7,7 @@
 <body>
 
     <h1>Migrant Worker Registration</h1>
-    <button onclick="logout()">Logout</button>
+   <button id="logoutBtn" onclick="logout()">Logout</button>
 
 <form>
        Name : <input id="name" type="text" placeholder="Enter Name"><br><br>
@@ -42,13 +42,18 @@
             <th>Disease</th>
             <th>Phone</th>
             <th>Action</th>
+            <th>QR</th>
         </tr>
     </thead>
 
     <tbody id="workersTable"></tbody>
 </table>
+  
+          <h2>QR Code</h2>
+         <div id="qrcode"></div>
 
-    <script src="script.js"></script>
-
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+       <script src="script.js"></script>
 </body>
 </html>

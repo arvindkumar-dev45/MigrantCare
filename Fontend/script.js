@@ -1,3 +1,4 @@
+
 if (localStorage.getItem("loggedIn") !== "true") {
 
     window.location.href = "login.html";
@@ -22,6 +23,11 @@ form.addEventListener("submit", (event) => {
 
     const phone = document.getElementById("phone").value;
 
+   
+
+   
+   
+
    if ( !name || !age || !state || !bloodGroup || !disease || !phone) {
 
         document.getElementById("message").innerText =
@@ -30,6 +36,18 @@ form.addEventListener("submit", (event) => {
 
         return;
     }
+
+   if (!/^\d+$/.test(phone)) {
+    alert("Phone number should contain only digits");
+    return;
+}
+
+if (phone.length !== 10) {
+    alert("Phone number must be 10 digits");
+    return;
+}
+
+
 if (editId) {
 
     fetch(`http://localhost:5000/api/workers/${editId}`, {
@@ -127,7 +145,7 @@ function loadWorkers() {
 
                     <td>
 
-                        <button onclick="editWorker(
+                        <button class="edit-btn" onclick="editWorker(
                         '${worker._id}',
                         '${worker.name}',
                         '${worker.age}',
@@ -139,10 +157,13 @@ function loadWorkers() {
                             Edit
                         </button>
 
-                        <button onclick="deleteWorker('${worker._id}')">
+                        <button class="delete-btn" onclick="deleteWorker('${worker._id}')">
                             Delete
                         </button>
 
+                    </td>
+
+                    <td><button onclick="showQR('${worker._id}')">QR</button>
                     </td>
 
                 </tr>
@@ -211,7 +232,7 @@ document.getElementById("search")
                 <td>${worker.phone || ""}</td>
 
                 <td>
-                    <button onclick="editWorker(
+                    <button class="edit-btn" onclick="editWorker(
                     '${worker._id}',
                     '${worker.name}',
                     '${worker.age}',
@@ -223,9 +244,17 @@ document.getElementById("search")
                         Edit
                     </button>
 
-                    <button onclick="deleteWorker('${worker._id}')">
+                    <button class="delete-btn" onclick="deleteWorker('${worker._id}')">
                         Delete
                     </button>
+                </td>
+
+                <td>
+
+                        <button onclick="showQR('${worker._id}')">
+                             QR
+                        </button>
+
                 </td>
             </tr>
         `;
@@ -239,5 +268,16 @@ function logout() {
     localStorage.removeItem("loggedIn");
 
     window.location.href = "login.html";
+
+}
+
+function showQR(id) {
+
+    document.getElementById("qrcode").innerHTML = "";
+
+    new QRCode(
+        document.getElementById("qrcode"),
+        `http://127.0.0.1:5500/Fontend/worker.html?id=${id}`
+    );
 
 }

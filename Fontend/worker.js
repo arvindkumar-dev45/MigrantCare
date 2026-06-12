@@ -3,6 +3,12 @@
 const params =new URLSearchParams(window.location.search);
 
 const id = params.get("id");
+if (!id) {
+    document.getElementById("details").innerHTML =
+    "<h2>No Worker Selected</h2>";
+    throw new Error("No worker id");
+}
+
 
 fetch(`http://localhost:5000/api/workers/${id}`)
 .then(response => response.json())
