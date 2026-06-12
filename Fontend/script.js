@@ -1,3 +1,8 @@
+if (localStorage.getItem("loggedIn") !== "true") {
+
+    window.location.href = "login.html";
+
+}
 let editId = null;
 let allWorkers = [];
 
@@ -228,3 +233,11 @@ document.getElementById("search")
     });
 
 });
+
+function logout() {
+
+    localStorage.removeItem("loggedIn");
+
+    window.location.href = "login.html";
+
+}

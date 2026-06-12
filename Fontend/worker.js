@@ -1,0 +1,19 @@
+
+
+const params =new URLSearchParams(window.location.search);
+
+const id = params.get("id");
+
+fetch(`http://localhost:5000/api/workers/${id}`)
+.then(response => response.json())
+.then(worker => {
+
+    document.getElementById("details").innerHTML = `
+        <h2>${worker.name}</h2>
+        <p>Age: ${worker.age}</p>
+        <p>State: ${worker.state}</p>
+        <p>Blood Group: ${worker.bloodGroup}</p>
+        <p>Disease: ${worker.disease}</p>
+        <p>Phone: ${worker.phone}</p>
+    `;
+});
