@@ -30,6 +30,10 @@ https://sage-melomakarona-029e8f.netlify.app
 Backend API:
 https://migrantcare.onrender.com
 
+## Project Screenshot
+
+![MigrantCare Screenshot](screenshots/homepage.png)
+
 ## Author
 
 Arvind Kumar
