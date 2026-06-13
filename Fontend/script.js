@@ -23,6 +23,8 @@ form.addEventListener("submit", (event) => {
 
     const phone = document.getElementById("phone").value;
 
+    const photo = document.getElementById("photo").files[0];
+
    
 
    
@@ -62,7 +64,8 @@ if (editId) {
     state,
     bloodGroup,
     disease,
-    phone
+    phone,
+   
 })
 
     })
@@ -94,7 +97,8 @@ if (editId) {
             state,
             bloodGroup,
             disease,
-            phone
+            phone,
+             photo: ""
         })
     })
     .then(response => response.text())
@@ -125,7 +129,24 @@ function loadWorkers() {
     .then(workers => {
 
          allWorkers = workers;
-         document.getElementById("workerCount").innerText =`Total Workers: ${workers.length}`;
+
+
+         document.getElementById("workerCount").innerText =
+workers.length;
+
+const states =
+new Set(workers.map(worker => worker.state));
+
+document.getElementById("stateCount").innerText =
+states.size;
+
+const bloodGroups =
+new Set(workers.map(worker => worker.bloodGroup));
+
+document.getElementById("bloodCount").innerText =
+bloodGroups.size;
+
+
         const workersTable =
         document.getElementById("workersTable");
 

@@ -5,8 +5,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="admin-panel">
+
+    <img src="profile.jpg" alt="Admin">
+
+    <div>
+        <h3>Arvind Kumar</h3>
+        <p>Administrator</p>
+    </div>
+
+</div>
 
     <h1>Migrant Worker Registration</h1>
+    <div class="dashboard-cards">
+
+    <div class="card">
+        <h2 id="workerCount">0</h2>
+        <p>Total Workers</p>
+    </div>
+
+    <div class="card">
+        <h2 id="stateCount">0</h2>
+        <p>States</p>
+    </div>
+
+    <div class="card">
+        <h2 id="bloodCount">0</h2>
+        <p>Blood Groups</p>
+    </div>
+
+</div>
    <button id="logoutBtn" onclick="logout()">Logout</button>
 
 <form>
@@ -21,12 +49,14 @@
         Disease:<input type="text" id="disease" placeholder="Disease"><br><br>
 
         Phone No:<input type="text" id="phone" placeholder="Phone Number"><br><br>
+        
+        Photo: <input type="file" id="photo"><br><br>
     
         <button type="submit">Register Worker</button>
     </form>
 
     <p id="message"></p>
-    <h3 id="workerCount">Total Workers: 0</h3>
+   
 
     <h2>Workers List</h2>
 

@@ -6,7 +6,8 @@ const workerSchema = new mongoose.Schema({
     state: String,
     bloodGroup: String,
     disease: String,
-    phone: String
+    phone: String,
+    photo: String,
 });
 
 module.exports = mongoose.model("Worker", workerSchema);
