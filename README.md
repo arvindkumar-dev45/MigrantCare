@@ -1,55 +1,34 @@
-# MigrantCare
+# MigrantCare Health Record System
 
-A full-stack web application for managing migrant worker information.
+A full-stack web application for managing migrant workers' health records.
 
 ## Features
 
 * Worker Registration
-* Worker Search
-* Edit Worker Details
-* Delete Worker
-* Login System
-* Logout System
-* Worker Details Page
+* Update Worker Details
+* Delete Worker Records
+* Search Workers
 * QR Code Generation
-* Phone Number Validation
+* QR Code Based Health Record Access
+* MongoDB Atlas Database
+* Render Backend Deployment
+* Netlify Frontend Deployment
 
 ## Tech Stack
 
-### Frontend
+* Frontend: HTML, CSS, JavaScript
+* Backend: Node.js, Express.js
+* Database: MongoDB Atlas
+* Hosting: Netlify + Render
+* Version Control: GitHub
 
-* HTML
-* CSS
-* JavaScript
+## Live Demo
 
-### Backend
+Frontend:
+https://sage-melomakarona-029e8f.netlify.app
 
-* Node.js
-* Express.js
-
-### Database
-
-* MongoDB
-
-## How to Run
-
-1. Install dependencies
-
-npm install
-
-2. Start backend server
-
-node server.js
-
-3. Open frontend using Live Server
-
-## Future Improvements
-
-* QR Scan Support
-* Deployment
-* JWT Authentication
-* Worker Photo Upload
-* PDF Worker Card
+Backend API:
+https://migrantcare.onrender.com
 
 ## Author
 
