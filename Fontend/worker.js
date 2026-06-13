@@ -1,5 +1,5 @@
 
-
+const API_URL = "https://migrantcare.onrender.com";
 const params =new URLSearchParams(window.location.search);
 
 const id = params.get("id");
@@ -9,8 +9,7 @@ if (!id) {
     throw new Error("No worker id");
 }
 
-
-fetch(`http://localhost:5000/api/workers/${id}`)
+fetch(`${API_URL}/api/workers/${id}`)
 .then(response => response.json())
 .then(worker => {
 

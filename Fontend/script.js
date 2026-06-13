@@ -1,4 +1,4 @@
-
+const API_URL = "https://migrantcare.onrender.com";
 if (localStorage.getItem("loggedIn") !== "true") {
 
     window.location.href = "login.html";
@@ -50,7 +50,7 @@ if (phone.length !== 10) {
 
 if (editId) {
 
-    fetch(`http://localhost:5000/api/workers/${editId}`, {
+    fetch(`${API_URL}/api/workers/${editId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -83,7 +83,7 @@ if (editId) {
 });
 } else {
 
-    fetch("http://localhost:5000/api/workers/register", {
+    fetch(`${API_URL}/api/workers/register`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -120,7 +120,7 @@ if (editId) {
 
 function loadWorkers() {
 
-    fetch("http://localhost:5000/api/workers")
+    fetch(`${API_URL}/api/workers`)
     .then(response => response.json())
     .then(workers => {
 
@@ -180,7 +180,7 @@ loadWorkers();
 async function deleteWorker(id) {
 
     await fetch(
-        `http://localhost:5000/api/workers/${id}`,
+        `${API_URL}/api/workers/${id}`,
         {
             method: "DELETE"
         }
