@@ -277,7 +277,7 @@ function showQR(id) {
 
     new QRCode(
         document.getElementById("qrcode"),
-        `http://127.0.0.1:5500/Fontend/worker.html?id=${id}`
+        `https://sage-melomakarona-029e8f.netlify.app/worker.html?id=${id}`
     );
 
 }
