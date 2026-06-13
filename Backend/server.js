@@ -4,7 +4,9 @@ const cors = require("cors");
 
 const app = express();
 
-mongoose.connect("mongodb://127.0.0.1:27017/migrantcare")
+mongoose.connect(
+"mongodb://arvindstudy9507_db_user:Arvind1234@ac-nrhf0ha-shard-00-00.ggalijo.mongodb.net:27017,ac-nrhf0ha-shard-00-01.ggalijo.mongodb.net:27017,ac-nrhf0ha-shard-00-02.ggalijo.mongodb.net:27017/?ssl=true&replicaSet=atlas-feqyls-shard-0&authSource=admin&appName=migrantcare-db"
+)
 .then(() => {
     console.log("MongoDB Connected");
 })
