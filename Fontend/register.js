@@ -11,22 +11,23 @@ function register() {
     const password =
     document.getElementById("password").value;
 
-    fetch(`${API_URL}/api/users/register`, {
+fetch(`${API_URL}/api/users/register`, {
 
-        method: "POST",
+    method: "POST",
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+    headers: {
+        "Content-Type": "application/json"
+    },
 
-        body: JSON.stringify({
-            name,
-            email,
-            password
-        })
-
+    body: JSON.stringify({
+        name,
+        email,
+        password
     })
-   .then(data => {
+
+})
+.then(response => response.text())
+.then(data => {
 
     document.getElementById("message").innerText =
     data;
