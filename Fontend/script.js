@@ -25,21 +25,43 @@ form.addEventListener("submit", (event) => {
 
     const photo = document.getElementById("photo").files[0];
 
-                    let photoData = "";
+                  
+                function registerWorker(photoData) {
+                
+                    console.log({
+    name,
+    age,
+    state,
+    bloodGroup,
+    disease,
+    phone,
+    photo: photoData
+});
 
-                if (photo) {
+    fetch(`${API_URL}/api/workers/register`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name,
+            age,
+            state,
+            bloodGroup,
+            disease,
+            phone,
+            photo: photoData
+        })
+    })
+    .then(response => response.text())
+    .then(data => {
 
-                    const reader = new FileReader();
+        document.getElementById("message").innerText = data;
 
-                    reader.onload = function () {
+        loadWorkers();
+    });
 
-                    console.log(reader.result);
-
-                     };
-
-                 reader.readAsDataURL(photo);
-
-                }
+}
    
 
    
@@ -100,42 +122,26 @@ if (editId) {
 
 });
 } else {
-     
-    console.log(photoData);
-    fetch(`${API_URL}/api/workers/register`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            name,
-            age,
-            state,
-            bloodGroup,
-            disease,
-            phone,
-             photo: photoData
-        })
-    })
-    .then(response => response.text())
-    .then(data => {
 
-    document.getElementById("message").innerText = data;
+    if (photo) {
 
-    document.getElementById("name").value = "";
-    document.getElementById("age").value = "";
-    document.getElementById("state").value = "";
-    document.getElementById("bloodGroup").value = "";
-    document.getElementById("disease").value = "";
-    document.getElementById("phone").value = "";
+        const reader = new FileReader();
 
-    editId = null;
+        reader.onload = function () {
 
-    loadWorkers();
+            registerWorker(reader.result);
 
-});
+        };
+
+        reader.readAsDataURL(photo);
+
+    } else {
+
+        registerWorker("");
+
+    }
+
 }
-
 });
 
 function loadWorkers() {
