@@ -24,6 +24,14 @@ form.addEventListener("submit", (event) => {
     const phone = document.getElementById("phone").value;
 
     const photo = document.getElementById("photo").files[0];
+    const reader = new FileReader();
+    let photoData = "";
+    if (photo) {
+    reader.readAsDataURL(photo);
+}
+reader.onload = function () {
+    photoData = reader.result;
+};
 
    
 
@@ -85,7 +93,8 @@ if (editId) {
 
 });
 } else {
-
+     
+    console.log(photoData);
     fetch(`${API_URL}/api/workers/register`, {
         method: "POST",
         headers: {
@@ -98,7 +107,7 @@ if (editId) {
             bloodGroup,
             disease,
             phone,
-             photo: ""
+             photo: photoData
         })
     })
     .then(response => response.text())
