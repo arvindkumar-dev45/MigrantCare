@@ -178,7 +178,9 @@ bloodGroups.size;
 
             workersTable.innerHTML += `
                 <tr>
-
+                    <td>
+                        <img src="${worker.photo}" width="50" height="50">
+                    </td>
                     <td>${worker.name}</td>
                     <td>${worker.age}</td>
                     <td>${worker.state}</td>
@@ -267,6 +269,9 @@ document.getElementById("search")
 
         workersTable.innerHTML += `
             <tr>
+            <td>
+   <img src="${worker.photo}" width="50" height="50">
+</td>
                 <td>${worker.name}</td>
                 <td>${worker.age}</td>
                 <td>${worker.state}</td>
