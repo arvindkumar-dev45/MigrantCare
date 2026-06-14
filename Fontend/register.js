@@ -26,12 +26,21 @@ function register() {
         })
 
     })
-    .then(response => response.text())
-    .then(data => {
+   .then(data => {
 
-        document.getElementById("message").innerText =
-        data;
+    document.getElementById("message").innerText =
+    data;
 
-    });
+    if(data === "User Registered Successfully"){
+
+        setTimeout(() => {
+
+            window.location.href = "login.html";
+
+        }, 1500);
+
+    }
+
+});
 
 }
