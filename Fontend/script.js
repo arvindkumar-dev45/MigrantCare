@@ -24,15 +24,22 @@ form.addEventListener("submit", (event) => {
     const phone = document.getElementById("phone").value;
 
     const photo = document.getElementById("photo").files[0];
-    const reader = new FileReader();
-    let photoData = "";
-    if (photo) {
-    reader.readAsDataURL(photo);
-}
-reader.onload = function () {
-    photoData = reader.result;
-};
 
+                    let photoData = "";
+
+                if (photo) {
+
+                    const reader = new FileReader();
+
+                    reader.onload = function () {
+
+                    console.log(reader.result);
+
+                     };
+
+                 reader.readAsDataURL(photo);
+
+                }
    
 
    
