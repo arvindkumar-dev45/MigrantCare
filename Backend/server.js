@@ -16,12 +16,14 @@ app.use(cors());
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 const workerRoutes = require("./routes/workerRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 app.get("/", (req, res) => {
   res.send("MigrantCare API Running");
 });
 
 app.use("/api/workers", workerRoutes);
+app.use("/api/users", userRoutes);
 
 
 
