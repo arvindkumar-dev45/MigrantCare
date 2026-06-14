@@ -14,11 +14,23 @@ fetch(`${API_URL}/api/workers/${id}`)
 .then(worker => {
 
     document.getElementById("details").innerHTML = `
-        <h2>${worker.name}</h2>
-        <p>Age: ${worker.age}</p>
-        <p>State: ${worker.state}</p>
-        <p>Blood Group: ${worker.bloodGroup}</p>
-        <p>Disease: ${worker.disease}</p>
-        <p>Phone: ${worker.phone}</p>
-    `;
+<div class="health-card">
+
+    <img class="worker-photo"
+         src="${worker.photo}"
+         alt="${worker.name}">
+
+    <h1>${worker.name}</h1>
+
+    <div class="blood-group">
+        ${worker.bloodGroup}
+    </div>
+
+    <p><strong>Age:</strong> ${worker.age}</p>
+    <p><strong>State:</strong> ${worker.state}</p>
+    <p><strong>Disease:</strong> ${worker.disease}</p>
+    <p><strong>Phone:</strong> ${worker.phone}</p>
+
+</div>
+`;
 });
