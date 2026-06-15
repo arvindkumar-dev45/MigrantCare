@@ -275,9 +275,9 @@ document.getElementById("search")
    <img src="${worker.photo}" width="50" height="50">
 </td>
                 <td>
-    <a href="worker.html?id=${worker._id}">
-        ${worker.name}
-    </a>
+   <a href="worker.html?id=${worker._id}">
+      ${worker.name}
+   </a>
 </td>
                 <td>${worker.age}</td>
                 <td>${worker.state}</td>
