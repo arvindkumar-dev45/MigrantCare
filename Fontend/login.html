@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>MigrantCare</title>
     <link rel="stylesheet" href="login.css">
 </head>
 
@@ -9,29 +9,67 @@
 
 <div class="login-box">
 
-    <h1>MigrantCare Login</h1>
+    <h1>MigrantCare</h1>
 
-    <input
-type="email"
-id="username"
-placeholder="Email">
+    <!-- LOGIN FORM -->
+    <div id="loginForm">
 
-    <input type="password"
-    id="password"
-    placeholder="Password">
+        <input type="email"
+               id="username"
+               placeholder="Email">
 
-    <button onclick="login()">
-        Login
-    </button>
+        <input type="password"
+               id="password"
+               placeholder="Password">
 
-    <p id="message"></p>
+        <button onclick="login()">
+            Login
+        </button>
 
-    <p>Don't have an account?<a href="register.html">Create Account</a></p>
+        <p id="message"></p>
+
+        <p>
+            Don't have an account?
+            <a href="#" onclick="showRegister()">
+                Create Account
+            </a>
+        </p>
+
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div id="registerForm" style="display:none;">
+
+        <input type="text"
+               id="regName"
+               placeholder="Full Name">
+
+        <input type="email"
+               id="regEmail"
+               placeholder="Email">
+
+        <input type="password"
+               id="regPassword"
+               placeholder="Password">
+
+        <button onclick="register()">
+            Create Account
+        </button>
+
+        <p id="registerMessage"></p>
+
+        <p>
+            Already have an account?
+            <a href="#" onclick="showLogin()">
+                Login
+            </a>
+        </p>
+
+    </div>
 
 </div>
 
 <script src="login.js"></script>
 
 </body>
-
 </html>
