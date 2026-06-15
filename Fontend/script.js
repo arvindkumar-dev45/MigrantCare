@@ -181,7 +181,9 @@ bloodGroups.size;
                     <td>
                         <img src="${worker.photo}" width="50" height="50">
                     </td>
-                    <td>${worker.name}</td>
+                    <td>
+                        <a href="worker.html?id=${worker._id}"> ${worker.name}</a>
+                    </td>
                     <td>${worker.age}</td>
                     <td>${worker.state}</td>
                     <td>${worker.bloodGroup || ""}</td>

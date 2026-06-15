@@ -13,23 +13,32 @@ fetch(`${API_URL}/api/workers/${id}`)
 .then(response => response.json())
 .then(worker => {
 
-    document.getElementById("details").innerHTML = `
+ document.getElementById("details").innerHTML = `
 <div class="health-card">
 
-    <img class="worker-photo"
-         src="${worker.photo}"
-         alt="${worker.name}">
-
-    <h1>${worker.name}</h1>
-
-    <div class="blood-group">
-        ${worker.bloodGroup}
+    <div class="card-header">
+        🚑 MigrantCare Health Card
     </div>
 
-    <p><strong>Age:</strong> ${worker.age}</p>
-    <p><strong>State:</strong> ${worker.state}</p>
-    <p><strong>Disease:</strong> ${worker.disease}</p>
-    <p><strong>Phone:</strong> ${worker.phone}</p>
+    <img
+        src="${worker.photo}"
+        class="worker-photo"
+        alt="Worker Photo">
+
+    <div class="worker-name">
+        ${worker.name}
+    </div>
+
+    <div class="blood-group">
+        🩸 ${worker.bloodGroup}
+    </div>
+
+    <div class="info">
+        <p><strong>👤 Age:</strong> ${worker.age}</p>
+        <p><strong>📍 State:</strong> ${worker.state}</p>
+        <p><strong>🏥 Disease:</strong> ${worker.disease}</p>
+        <p><strong>📞 Phone:</strong> ${worker.phone}</p>
+    </div>
 
 </div>
 `;
