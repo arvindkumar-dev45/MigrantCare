@@ -8,6 +8,8 @@ const workerSchema = new mongoose.Schema({
     disease: String,
     phone: String,
     photo: String,
+
+    createdBy: String
 });
 
 module.exports = mongoose.model("Worker", workerSchema);

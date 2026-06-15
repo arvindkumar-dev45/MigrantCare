@@ -35,8 +35,8 @@ function login() {
             );
 
             localStorage.setItem(
-                "userName",
-                data.user.name
+                "role",
+                data.user.role
             );
 
             window.location.href = "index.html";

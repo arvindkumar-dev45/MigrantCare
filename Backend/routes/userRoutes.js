@@ -19,7 +19,8 @@ router.post("/register", async (req, res) => {
         await User.create({
             name,
             email,
-            password
+            password,
+            role: "user"
         });
 
         res.send("User Registered Successfully");

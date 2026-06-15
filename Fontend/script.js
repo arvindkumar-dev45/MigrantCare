@@ -1,4 +1,7 @@
 const API_URL = "https://migrantcare.onrender.com";
+const role = localStorage.getItem("role");
+const currentUserId =
+localStorage.getItem("userId");
 if (localStorage.getItem("loggedIn") !== "true") {
 
     window.location.href = "login.html";
@@ -50,7 +53,9 @@ form.addEventListener("submit", (event) => {
             bloodGroup,
             disease,
             phone,
-            photo: photoData
+            photo: photoData,
+
+             createdBy: localStorage.getItem("userId")
         })
     })
     .then(response => response.text())
@@ -190,27 +195,32 @@ bloodGroups.size;
                     <td>${worker.disease || ""}</td>
                     <td>${worker.phone || ""}</td>
 
+  <td>
+
+${role === "admin" || worker.createdBy === currentUserId ? `
+
+<button class="edit-btn" onclick="editWorker(
+'${worker._id}',
+'${worker.name}',
+'${worker.age}',
+'${worker.state}',
+'${worker.bloodGroup}',
+'${worker.disease}',
+'${worker.phone}'
+)">
+Edit
+</button>
+
+<button class="delete-btn"
+onclick="deleteWorker('${worker._id}')">
+Delete
+</button>
+
+` : ''}
+
+</td>
                     <td>
-
-                        <button class="edit-btn" onclick="editWorker(
-                        '${worker._id}',
-                        '${worker.name}',
-                        '${worker.age}',
-                        '${worker.state}',
-                        '${worker.bloodGroup}',
-                        '${worker.disease}',
-                        '${worker.phone}'
-                        )">
-                            Edit
-                        </button>
-
-                        <button class="delete-btn" onclick="deleteWorker('${worker._id}')">
-                            Delete
-                        </button>
-
-                    </td>
-
-                    <td><button onclick="showQR('${worker._id}')">QR</button>
+                    <button onclick="showQR('${worker._id}')">QR</button>
                     </td>
 
                 </tr>
@@ -234,6 +244,7 @@ async function deleteWorker(id) {
     );
 
     loadWorkers();
+
 
 }
 
@@ -286,21 +297,28 @@ document.getElementById("search")
                 <td>${worker.phone || ""}</td>
 
                 <td>
-                    <button class="edit-btn" onclick="editWorker(
-                    '${worker._id}',
-                    '${worker.name}',
-                    '${worker.age}',
-                    '${worker.state}',
-                    '${worker.bloodGroup}',
-                    '${worker.disease}',
-                    '${worker.phone}'
-                    )">
-                        Edit
-                    </button>
 
-                    <button class="delete-btn" onclick="deleteWorker('${worker._id}')">
-                        Delete
-                    </button>
+                ${role === "admin" || worker.createdBy === currentUserId ? `
+
+                <button class="edit-btn" onclick="editWorker(
+                '${worker._id}',
+                '${worker.name}',
+                '${worker.age}',
+                '${worker.state}',
+                '${worker.bloodGroup}',
+                '${worker.disease}',
+                '${worker.phone}'
+                )">
+                Edit
+                </button>
+
+                <button class="delete-btn"
+                onclick="deleteWorker('${worker._id}')">
+                Delete
+                </button>
+
+                ` : ''}
+
                 </td>
 
                 <td>
